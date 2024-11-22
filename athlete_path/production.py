@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import google.generativeai as genai
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +26,9 @@ DEBUG = False
 
 SECRET_KEY = [os.environ['SECRET']]
 
-ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME'], 'athletepath-e7fbhkdfeecygxet.eastus-01.azurewebsites.net']
 
-CSRF_TRUSTED_ORIGINS = ['https://'+ os.environ['WEBSITE_HOSTNAME']]
+CSRF_TRUSTED_ORIGINS = ['https://athletepath-e7fbhkdfeecygxet.eastus-01.azurewebsites.net']
 
 # Application definition
 
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users', #Registrar la aplicación users. 
-    'storage',
+    'storages',
 ]
 
 LOGIN_URL = 'login'
